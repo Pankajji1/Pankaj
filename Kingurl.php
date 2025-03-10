@@ -18,9 +18,9 @@ $ua[]="cookie: _ga=GA1.1.314983368.1714562008;AnotepadId=B2ADCFF5431312DED7651CD
   return $ua;
 }
 
-if ($failed == ""){
+/*if ($failed == ""){
 $res = curl('https://anotepad.com/note/create', "notetype=PlainText&noteaccess=2&notepassword=&notequickedit=false&notequickeditpassword=&notetitle=&notecontent=New = $apikey", anotepad())[1];
-}
+}*/
 
 function getRandomString() {
     return uniqid();
@@ -71,7 +71,7 @@ echo $blue . "
 
 // लिंक प्रिंट करें
 //$new_url = "https://example.com"; // असली URL डालें
-echo "🔗 Link Password: " . $green . $canonical . "\n" . $reset;
+echo "🔗 Link Password: " . $green . $new_url . "\n" . $reset;
 
 // पासवर्ड सेट करें (सुरक्षित तरीके से)
   // असली पासवर्ड
