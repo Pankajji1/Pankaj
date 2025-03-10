@@ -9,8 +9,8 @@ $ua[]="Origin: https://rentry.co";
   return $ua;
 }
 
-/*
-$failed = file_get_contents('api.sctg'); */
+
+$failed = file_get_contents('api.sctg'); 
 function anotepad(){
  $ua[]="Host: anotepad.com";
 
