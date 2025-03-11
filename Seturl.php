@@ -1,3 +1,4 @@
+<?php
 ///////////////////////////////////
 function rentry(){
  $ua[]="Host: rentry.co";
