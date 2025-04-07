@@ -47,14 +47,7 @@ curl_setopt($ch, CURLOPT_HEADER, 0);
 $data = curl_exec($ch);
  $shortenedUrl = json_decode($data,true)["shortenedUrl"];
 
-//test it out!
- $new_url = get_tiny_url("$shortenedUrl");
- $ch = curl_init("https://short2url.in/api?api=80fa0aef0603a36f325a8bc805f982722c01012b&url=$new_url"); // such as http://example.com/example.xml
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_HEADER, 0);
-$data = curl_exec($ch);
- $shortenedUrl = json_decode($data,true)["shortenedUrl"];
-  
+ 
 // टर्मिनल साफ़ करें (Windows और Linux/macOS दोनों के लिए)
 @system(strtoupper(substr(PHP_OS, 0, 3)) === 'WIN' ? "cls" : "clear");
 
