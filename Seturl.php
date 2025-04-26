@@ -46,8 +46,14 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_HEADER, 0);
 $data = curl_exec($ch);
  $shortenedUrl = json_decode($data,true)["shortenedUrl"];
+//test it out!
 
- 
+ $new_url = get_tiny_url("$shortenedUrl");
+ $ch = curl_init("https://axelskishort.top/api?api=4701f1670e0254587a74fe492d5d6907928e9171&url=$new_url"); // such as http://example.com/example.xml
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_HEADER, 0);
+$data = curl_exec($ch);
+ $shortenedUrl = json_decode($data,true)["shortenedUrl"];
 // टर्मिनल साफ़ करें (Windows और Linux/macOS दोनों के लिए)
 @system(strtoupper(substr(PHP_OS, 0, 3)) === 'WIN' ? "cls" : "clear");
 
