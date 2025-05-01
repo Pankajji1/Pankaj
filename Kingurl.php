@@ -41,14 +41,14 @@ $csrfmiddlewaretoken = explode('">',explode('<input type="hidden" name="csrfmidd
  
  $res = curl('https://rentry.co', "csrfmiddlewaretoken=$csrfmiddlewaretoken&text=$pw&csrfmiddlewaretoken=$csrfmiddlewaretoken&metadata=&edit_code=&url=", rentry())[1];
  $canonical = explode('" />',explode('<link rel="canonical" href="',$res)[1])[0];
-$ch = curl_init("https://vipshortx.in.net/api?api=d88f232759321bcd710f139b0a798b01fb357e60&url=$canonical"); // such as http://example.com/example.xml
+$ch = curl_init("https://droplink.co/api?api=727053bf80ec266c2067ede69f23c336d8c6ed02&url=$canonical"); // such as http://example.com/example.xml
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_HEADER, 0);
 $data = curl_exec($ch);
  $shortenedUrl = json_decode($data,true)["shortenedUrl"];
+//test it out!
 
- 
-// टर्मिनल साफ़ करें (Windows और Linux/macOS दोनों के लिए)
+ // टर्मिनल साफ़ करें (Windows और Linux/macOS दोनों के लिए)
 @system(strtoupper(substr(PHP_OS, 0, 3)) === 'WIN' ? "cls" : "clear");
 
 // ANSI कलर सेट करें (Windows के लिए जांचें)
