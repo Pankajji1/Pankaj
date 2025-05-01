@@ -1,2 +1,2 @@
 <?php
-exit("Run Again\n");
+exit("All scripts are temporarily blocked. Please wait\n");
