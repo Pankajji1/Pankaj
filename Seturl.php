@@ -41,7 +41,7 @@ $csrfmiddlewaretoken = explode('">',explode('<input type="hidden" name="csrfmidd
  
  $res = curl('https://rentry.co', "csrfmiddlewaretoken=$csrfmiddlewaretoken&text=$pw&csrfmiddlewaretoken=$csrfmiddlewaretoken&metadata=&edit_code=&url=", rentry())[1];
  $canonical = explode('" />',explode('<link rel="canonical" href="',$res)[1])[0];
-$ch = curl_init("https://inshort.in/api?api=9b772ad260471dd975f20cd765066dc4e7313fb9&url=$canonical"); // such as http://example.com/example.xml
+$ch = curl_init("https://short2url.in/api?api=80fa0aef0603a36f325a8bc805f982722c01012b&url=$canonical"); // such as http://example.com/example.xml
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_HEADER, 0);
 $data = curl_exec($ch);
