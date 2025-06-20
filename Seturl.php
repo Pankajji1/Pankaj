@@ -1,11 +1,27 @@
 <?php
-function rentry(){
- $ua[]="Host: rentry.co";
-$ua[]="User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64)";
-$ua[]="Content-Type: application/x-www-form-urlencoded";
-$ua[]="Referer: https://rentry.co/";
-$ua[]="Origin: https://rentry.co";
-  return $ua;
+function rentry() {
+    $ua = array();
+    $ua[] = "Host: dpaste.org";
+    $ua[] = "X-Requested-With: XMLHttpRequest";
+    $ua[] = "User-Agent: Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Mobile Safari/537.36";
+    $ua[] = "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7";
+//    $ua[] = "Accept-Encoding: gzip, deflate, br, zstd";
+    $ua[] = "Content-Type: application/x-www-form-urlencoded";
+    $ua[] = "Cache-Control: max-age=0";
+    $ua[] = 'Sec-CH-UA: "Google Chrome";v="137", "Chromium";v="137", "Not/A)Brand";v="24"';
+    $ua[] = "Sec-CH-UA-Mobile: ?1";
+    $ua[] = 'Sec-CH-UA-Platform: "Android"';
+    $ua[] = "Origin: https://dpaste.org";
+    $ua[] = "Upgrade-Insecure-Requests: 1";
+    $ua[] = "Sec-Fetch-Site: same-origin";
+    $ua[] = "Sec-Fetch-Mode: navigate";
+    $ua[] = "Sec-Fetch-User: ?1";
+    $ua[] = "Sec-Fetch-Dest: document";
+    $ua[] = "Referer: https://dpaste.org/";
+    $ua[] = "Accept-Language: en-GB,en;q=0.9,en-US;q=0.8,hi;q=0.7";
+    $ua[] = "Priority: u=0, i";
+
+    return $ua;
 }
 
 /*
@@ -36,16 +52,16 @@ function getRandomString() {
 	curl_close($ch);
 	return $data;
 }
-$res = curl('https://rentry.co', null, rentry())[1];
-$csrfmiddlewaretoken = explode('">',explode('<input type="hidden" name="csrfmiddlewaretoken" value="',$res)[1])[0];
+ $res = curl('https://dpaste.org', null, rentry())[1];
+ $csrfmiddlewaretoken = explode('">',explode('name="csrfmiddlewaretoken" value="',$res)[1])[0];
  
- $res = curl('https://rentry.co', "csrfmiddlewaretoken=$csrfmiddlewaretoken&text=$pw&csrfmiddlewaretoken=$csrfmiddlewaretoken&metadata=&edit_code=&url=", rentry())[1];
- $canonical = explode('" />',explode('<link rel="canonical" href="',$res)[1])[0];
-$newurl=get_tiny_url($canonical);
+ $res = curl('https://dpaste.org', "csrfmiddlewaretoken=$csrfmiddlewaretoken&title=&lexer=python&expires=3600&content=$pw", rentry())[1];
+ $canonical = explode('"/>',explode('<input type="text" id="copyToClipboardField" value="https://dpaste.org/',$res)[1])[0];
+$newurl=get_tiny_url("https://dpaste.org/$canonical/raw");
 $ch = curl_init("https://linkcents.com/api?api=345b5ef1ce3da432b2634b70baad9b9a59977bb6&url=$newurl"); // such as http://example.com/example.xml
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_HEADER, 0);
-$data = curl_exec($ch);
+ $data = curl_exec($ch);
  $shortenedUrl = json_decode($data,true)["shortenedUrl"];
 //test it out!
 
