@@ -58,7 +58,7 @@ function getRandomString() {
  $res = curl('https://dpaste.org', "csrfmiddlewaretoken=$csrfmiddlewaretoken&title=&lexer=python&expires=3600&content=$pw", rentry())[1];
  $canonical = explode('"/>',explode('<input type="text" id="copyToClipboardField" value="https://dpaste.org/',$res)[1])[0];
 $newurl=get_tiny_url("https://dpaste.org/$canonical/raw");
-$ch = curl_init("https://linkcents.com/api?api=345b5ef1ce3da432b2634b70baad9b9a59977bb6&url=$newurl"); // such as http://example.com/example.xml
+$ch = curl_init("https://arolinks.com/api?api=50b4c0ddfbc6242a4df7e92252ef851ac5870dc8&url=$newurl"); // such as http://example.com/example.xml
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_HEADER, 0);
  $data = curl_exec($ch);
